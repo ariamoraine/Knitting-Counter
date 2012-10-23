@@ -1,49 +1,116 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@drawable/knit_texture" >
 
     <Button
-        android:id="@+id/rowButton"
+        android:id="@+id/repeatPlusButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:text="@string/Rows" />
-
-    <Button
-        android:id="@+id/repeatButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_below="@+id/yourOnRepeat"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/Repeat" />
+        android:background="@color/darkpurple"
+        android:text="@string/plusOne"
+        android:textColor="@color/grey"
+        android:textSize="50dp"
+        android:textStyle="bold" />
 
-	<TextView
-	    android:id="@+id/text"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_centerHorizontal="true"
-	    android:text="You're on row 0"
-	    android:textSize="40dp" />
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/darkpurple"
+        android:text="@string/clear"
+        android:textColor="@color/grey"
+        android:textSize="60dp" />
 
-	<TextView
-	    android:id="@+id/textView1"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_above="@+id/repeatButton"
-	    android:layout_centerHorizontal="true"
-	    android:text="You're on repeat 0"
-	    android:textSize="40dp" />
+    <TextView
+        android:id="@+id/yourOnRepeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/onRepeat"
+        android:textColor="#000000"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:typeface="normal" />
 
-	<Button
-	    android:id="@+id/clearButton"
-	    android:layout_width="wrap_content"
-	    android:layout_height="80dp"
-	    android:layout_alignParentBottom="true"
-	    android:layout_alignParentLeft="true"
-	    android:layout_alignParentRight="true"
-	    android:text="@string/clear" />
-		
+    <Button
+        android:id="@+id/minusRowButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/yourOnRepeat"
+        android:layout_alignLeft="@+id/repeatPlusButton"
+        android:background="@color/darkpurple"
+        android:text="@string/minOne"
+        android:textColor="@color/grey"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/rowPlusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/minusRowButton"
+        android:layout_centerHorizontal="true"
+        android:background="@color/darkpurple"
+        android:text="@string/plusOne"
+        android:textColor="@color/grey"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/minusRepeatButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/clearButton"
+        android:layout_alignLeft="@+id/repeatPlusButton"
+        android:background="@color/darkpurple"
+        android:text="@string/minOne"
+        android:textColor="@color/grey"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/yourOnRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rowPlusButton"
+        android:layout_centerHorizontal="true"
+        android:text="@string/onRow"
+        android:textColor="#000000"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/rowNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/minusRowButton"
+        android:layout_alignRight="@+id/yourOnRow"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="80dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/repeatNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/minusRepeatButton"
+        android:layout_alignLeft="@+id/rowNumber"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="80dp"
+        android:textStyle="bold" />
+
 </RelativeLayout>

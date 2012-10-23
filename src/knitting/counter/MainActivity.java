@@ -13,37 +13,61 @@ public class MainActivity extends Activity {
 	int repeatcounter = 0;
 	
 	TextView text;
-	TextView textView1;
+	TextView repeatText;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        countRows();
-        countRepeats();
+        countRowsUp();
+        countRepeatsUp();
         clearButton();
+        countRowsDown();
+        countRepeatsDown();
     }
     
-    public void countRows(){
-    	Button button = (Button) findViewById(R.id.rowButton);
-    	text = (TextView) findViewById(R.id.text);
+    public void countRowsUp(){
+    	Button button = (Button) findViewById(R.id.rowPlusButton);
+    	text = (TextView) findViewById(R.id.rowNumber);
     	button.setOnClickListener(new OnClickListener(){
     		
     		public void onClick(View v){
     			rowcounter++; 
-    			text.setText("You're on row " + rowcounter);
+    			text.setText(Integer.toString(rowcounter));
     		}
     	});
     	
     }
+    public void countRowsDown(){
+    	Button button = (Button) findViewById(R.id.minusRowButton);
+    	text = (TextView) findViewById(R.id.rowNumber);
+    	button.setOnClickListener(new OnClickListener(){
+    		public void onClick(View v){
+    			rowcounter--;
+    			text.setText(Integer.toString(rowcounter));
+    		}
+    	});
+    }
     
-    public void countRepeats(){
-    	Button button = (Button) findViewById(R.id.repeatButton);
-    	textView1 = (TextView) findViewById(R.id.textView1);
+    public void countRepeatsUp(){
+    	Button button = (Button) findViewById(R.id.repeatPlusButton);
+    	repeatText = (TextView) findViewById(R.id.repeatNumber);
     	button.setOnClickListener(new OnClickListener(){
     		
     		public void onClick(View v){
     			repeatcounter++; 
-    			textView1.setText("You're on repeat " + repeatcounter);
+    			repeatText.setText(Integer.toString(repeatcounter));
+    		}
+    	});
+    }
+    
+    public void countRepeatsDown(){
+    	Button button = (Button) findViewById(R.id.minusRepeatButton);
+    	repeatText = (TextView) findViewById(R.id.repeatNumber);
+    	button.setOnClickListener(new OnClickListener(){
+    		
+    		public void onClick(View v){
+    			repeatcounter--;
+    			repeatText.setText(Integer.toString(repeatcounter));
     		}
     	});
     }
@@ -55,8 +79,8 @@ public class MainActivity extends Activity {
     		public void onClick(View v){
     			repeatcounter = 0;
     			rowcounter = 0;
-    			textView1.setText("You're on repeat " + repeatcounter);
-    			text.setText("You're on row " + rowcounter);
+    			repeatText.setText (Integer.toString(repeatcounter));
+    			text.setText(Integer.toString(rowcounter));
     		
     		}
     	});

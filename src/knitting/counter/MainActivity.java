@@ -1,7 +1,9 @@
 package knitting.counter;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -18,11 +20,28 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        rowcounter = app_preferences.getInt("rowcounter", 0);
+        repeatcounter = app_preferences.getInt("repeatcounter", 0);
+        text = (TextView) findViewById(R.id.rowNumber);
+        repeatText = (TextView) findViewById(R.id.repeatNumber);
+        repeatText.setText (Integer.toString(repeatcounter));
+		text.setText(Integer.toString(rowcounter));
         countRowsUp();
         countRepeatsUp();
         clearButton();
         countRowsDown();
         countRepeatsDown();
+    }
+    
+    @Override
+    protected void onPause(){
+    	super.onPause();
+    SharedPreferences app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
+    SharedPreferences.Editor editor = app_preferences.edit();
+    editor.putInt("rowcounter", rowcounter);
+    editor.putInt("repeatcounter", repeatcounter);
+    editor.commit();
     }
     
     public void countRowsUp(){

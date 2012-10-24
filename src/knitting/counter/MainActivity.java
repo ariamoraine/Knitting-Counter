@@ -9,7 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener{
 	
 	int rowcounter = 0;
 	int repeatcounter = 0;
@@ -27,11 +27,17 @@ public class MainActivity extends Activity {
         repeatText = (TextView) findViewById(R.id.repeatNumber);
         repeatText.setText (Integer.toString(repeatcounter));
 		text.setText(Integer.toString(rowcounter));
-        countRowsUp();
-        countRepeatsUp();
-        clearButton();
-        countRowsDown();
-        countRepeatsDown();
+		Button rowPlusButton = (Button) findViewById(R.id.rowPlusButton);
+		Button minusRowButton = (Button) findViewById(R.id.minusRowButton);
+		Button repeatPlusButton = (Button) findViewById(R.id.repeatPlusButton);
+		Button minusRepeatButton = (Button) findViewById(R.id.minusRepeatButton);
+		Button clearButton = (Button) findViewById(R.id.clearButton);
+		rowPlusButton.setOnClickListener(this);
+		minusRowButton.setOnClickListener(this);
+		repeatPlusButton.setOnClickListener(this);
+		minusRepeatButton.setOnClickListener(this);
+		clearButton.setOnClickListener(this);
+		
     }
     
     @Override
@@ -44,65 +50,37 @@ public class MainActivity extends Activity {
     editor.commit();
     }
     
-    public void countRowsUp(){
-    	Button button = (Button) findViewById(R.id.rowPlusButton);
-    	text = (TextView) findViewById(R.id.rowNumber);
-    	button.setOnClickListener(new OnClickListener(){
-    		
-    		public void onClick(View v){
-    			rowcounter++; 
-    			text.setText(Integer.toString(rowcounter));
-    		}
-    	});
+    public void onClick(View v){
+    	switch(v.getId()){
     	
-    }
-    public void countRowsDown(){
-    	Button button = (Button) findViewById(R.id.minusRowButton);
-    	text = (TextView) findViewById(R.id.rowNumber);
-    	button.setOnClickListener(new OnClickListener(){
-    		public void onClick(View v){
-    			rowcounter--;
-    			text.setText(Integer.toString(rowcounter));
-    		}
-    	});
-    }
-    
-    public void countRepeatsUp(){
-    	Button button = (Button) findViewById(R.id.repeatPlusButton);
-    	repeatText = (TextView) findViewById(R.id.repeatNumber);
-    	button.setOnClickListener(new OnClickListener(){
-    		
-    		public void onClick(View v){
-    			repeatcounter++; 
-    			repeatText.setText(Integer.toString(repeatcounter));
-    		}
-    	});
-    }
-    
-    public void countRepeatsDown(){
-    	Button button = (Button) findViewById(R.id.minusRepeatButton);
-    	repeatText = (TextView) findViewById(R.id.repeatNumber);
-    	button.setOnClickListener(new OnClickListener(){
-    		
-    		public void onClick(View v){
-    			repeatcounter--;
-    			repeatText.setText(Integer.toString(repeatcounter));
-    		}
-    	});
-    }
-    
-    public void clearButton(){
-    	Button button = (Button) findViewById(R.id.clearButton);
-    	button.setOnClickListener(new OnClickListener(){
-    		
-    		public void onClick(View v){
-    			repeatcounter = 0;
-    			rowcounter = 0;
-    			repeatText.setText (Integer.toString(repeatcounter));
-    			text.setText(Integer.toString(rowcounter));
-    		
-    		}
-    	});
+    	case R.id.clearButton:
+    		repeatcounter = 0;
+			rowcounter = 0;
+			repeatText.setText (Integer.toString(repeatcounter));
+			text.setText(Integer.toString(rowcounter));
+    		break;
+    	
+    	case R.id.rowPlusButton:
+    		rowcounter++; 
+			text.setText(Integer.toString(rowcounter));
+    		break;
+    	
+    	case R.id.minusRowButton:
+    		rowcounter--;
+			text.setText(Integer.toString(rowcounter));
+    		break;
+    	
+    	case R.id.repeatPlusButton:
+    		repeatcounter++; 
+			repeatText.setText(Integer.toString(repeatcounter));
+    		break;
+    	
+    	case R.id.minusRepeatButton:
+    		repeatcounter--;
+			repeatText.setText(Integer.toString(repeatcounter));
+    		break;
+    	}
     }
     
 }
+    

@@ -5,19 +5,6 @@
     android:background="@drawable/knit_texture" >
 
     <Button
-        android:id="@+id/repeatPlusButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/yourOnRepeat"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@color/darkpurple"
-        android:text="@string/plusOne"
-        android:textColor="@color/grey"
-        android:textSize="50dp"
-        android:textStyle="bold" />
-
-    <Button
         android:id="@+id/clearButton"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
@@ -42,50 +29,13 @@
         android:textStyle="bold"
         android:typeface="normal" />
 
-    <Button
-        android:id="@+id/minusRowButton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/yourOnRepeat"
-        android:layout_alignLeft="@+id/repeatPlusButton"
-        android:background="@color/darkpurple"
-        android:text="@string/minOne"
-        android:textColor="@color/grey"
-        android:textSize="30dp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/rowPlusButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/minusRowButton"
-        android:layout_centerHorizontal="true"
-        android:background="@color/darkpurple"
-        android:text="@string/plusOne"
-        android:textColor="@color/grey"
-        android:textSize="50dp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/minusRepeatButton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/clearButton"
-        android:layout_alignLeft="@+id/repeatPlusButton"
-        android:background="@color/darkpurple"
-        android:text="@string/minOne"
-        android:textColor="@color/grey"
-        android:textSize="30dp"
-        android:textStyle="bold" />
-
     <TextView
         android:id="@+id/yourOnRow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/rowPlusButton"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:text="@string/onRow"
         android:textColor="#000000"
         android:textSize="40dp"
@@ -95,20 +45,74 @@
         android:id="@+id/rowNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/minusRowButton"
         android:layout_alignRight="@+id/yourOnRow"
+        android:layout_below="@+id/yourOnRow"
         android:textColor="#000000"
         android:textSize="80dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/rowPlusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/rowNumber"
+        android:layout_alignLeft="@+id/yourOnRow"
+        android:layout_alignTop="@+id/rowNumber"
+        android:background="@color/darkpurple"
+        android:text="@string/plusOne"
+        android:textColor="@color/grey"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:width="90dp" />
+
+    <Button
+        android:id="@+id/minusRowButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/rowPlusButton"
+        android:layout_toRightOf="@+id/rowPlusButton"
+        android:background="@color/darkpurple"
+        android:text="@string/minOne"
+        android:textColor="@color/grey"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/repeatPlusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/minusRepeatButton"
+        android:layout_alignLeft="@+id/rowPlusButton"
+        android:layout_below="@+id/yourOnRepeat"
+        android:layout_toLeftOf="@+id/minusRepeatButton"
+        android:background="@color/darkpurple"
+        android:text="@string/plusOne"
+        android:textColor="@color/grey"
+        android:textSize="50dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/repeatNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/minusRepeatButton"
         android:layout_alignLeft="@+id/rowNumber"
+        android:layout_below="@+id/yourOnRepeat"
         android:textColor="#000000"
         android:textSize="80dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/minusRepeatButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/repeatNumber"
+        android:layout_toRightOf="@+id/rowPlusButton"
+        android:background="@color/darkpurple"
+        android:text="@string/minOne"
+        android:textColor="@color/grey"
+        android:textSize="30dp"
         android:textStyle="bold" />
 
 </RelativeLayout>
